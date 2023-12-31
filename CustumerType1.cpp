@@ -275,5 +275,3 @@ int CustumerType1::Input(const std::string& s){
     this->AddTrainDay();
     return 1;
 }
-
-//test thu
