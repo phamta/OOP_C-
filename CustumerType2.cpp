@@ -95,7 +95,6 @@ int CustumerType2::Input(const std::string& s){
     
     if(str[2] != '/') str = "0" + str;
     if(str[5] != '/') str.insert(3,"0");
-    //chuẩn hóa ngày tập về dạng dd/mm/yyyy
 
     std::string temp1 = str.substr(0,2);
     p2.SetDay(temp1);
