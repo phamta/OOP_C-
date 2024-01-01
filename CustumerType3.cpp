@@ -102,6 +102,7 @@ int CustumerType3::Input(const std::string& s){
     this->CustumerNumber = "VIP" + std::string(3-std::to_string(CustumerType3::Count3).length(),'0') + std::to_string(CustumerType3::Count3);
     std::cin.ignore(); 
     CustumerType2::Input(s);
+    --CustumerType2::Count2;
 
     this->Service = this->p3.GetService();
     return 1;
