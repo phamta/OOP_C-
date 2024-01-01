@@ -7,18 +7,7 @@ std::vector<int> Management<T>::revenue(12,0);
 template<typename T>
 void Management<T>::AddCustomer(const T& custumer){
     customers.push_back(custumer);
-    // revenue.resize(12, 0);
-    // UpdateRevenue();
 }
-
-// template<typename T>
-// void Management<T>::UpdateRevenue() {
-//         // for (const T& customer : customers) {
-//         //     std::string month = customer.GetPackage().GetMonth();
-//         //     int price = customer.TotalPrice();
-//         //     revenue[std::stoi(month) - 1] += price; // Cộng giá trị vào doanh thu của tháng tương ứng
-//         // }
-//     };
 
 template<typename T>
 void Management<T>::ShowAllCustomers(){
