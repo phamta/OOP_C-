@@ -5,12 +5,9 @@
 int CustumerType2::Count2 = 0;
 std::string CustumerType2::NameCustumerType2 = "Khach hang tap hang thang";
 
-void CustumerType2::Show(){
-    std::cout << "----------------------------------------------" << std::endl;
-    std::cout << "|" << std::setw(17) << "Ma khach hang : " << this->CustumerNumber << std::setw(24) << "|" << std::endl;
-    Human::Show();
-    std::cout << "|" << std::setw(17) << "Ngay bat dau : " << ((p2.GetDay().length()==1) ? ("0"+p2.GetDay()) : p2.GetDay())
-              << "/" << ((p2.GetMonth().length()==1) ? ("0"+p2.GetMonth()) : p2.GetMonth()) << "/" << p2.GetYear()
+void CustumerType2::ShowDate(){
+    std::cout << "|" << std::setw(17) << "Ngay bat dau : " << ((p1.GetDay().length()==1) ? ("0"+p1.GetDay()) : p1.GetDay())
+              << "/" << ((p1.GetMonth().length()==1) ? ("0"+p1.GetMonth()) : p1.GetMonth()) << "/" << p1.GetYear()
               << std::setw(18) << "|" << std::endl;
 
     int number = p2.GetNumberOfMonth();
@@ -18,7 +15,13 @@ void CustumerType2::Show(){
 
     std::cout << "|" << std::setw(17) << "Thoi han : " << ((s.length()==1) ? ("0"+s) : s) << " thang" 
               << std::setw(20) << "|" << std::endl;
+}
 
+void CustumerType2::Show(){
+    std::cout << "----------------------------------------------" << std::endl;
+    std::cout << "|" << std::setw(17) << "Ma khach hang : " << this->CustumerNumber << std::setw(24) << "|" << std::endl;
+    Human::Show();
+    ShowDate();
     std::cout << "----------------------------------------------" << std::endl;
 }
 
@@ -41,15 +44,15 @@ void CustumerType2::ReadFile(std::ifstream& ifs){
     int number;
 
     getline(ifs,day,',');    
-    p2.SetDay(day);
+    p1.SetDay(day);
     ifs.ignore(1, ',');
 
     getline(ifs,month,',');
-    p2.SetMonth(month);
+    p1.SetMonth(month);
     ifs.ignore(1, ',');
 
     getline(ifs,year,',');
-    p2.SetYear(year);
+    p1.SetYear(year);
     ifs.ignore(1, ',');
 
     ifs >> number;
@@ -71,7 +74,7 @@ void CustumerType2::WriteFile(const std::string& filename){
         ofs << std::endl;
     }
     ofs << this->GetCustumerNumer() << "," <<  FullName << "," << BornYear << ", " << Gender << ", " << PhoneNumber << ", "
-        << p2.GetDay() << ", " << p2.GetMonth() << ", " << p2.GetYear() << ", " << p2.GetNumberOfMonth();
+        << p1.GetDay() << ", " << p1.GetMonth() << ", " << p1.GetYear() << ", " << p2.GetNumberOfMonth();
 
     ofs.close();
 }
@@ -98,11 +101,11 @@ int CustumerType2::Input(const std::string& s){
     //chuẩn hóa ngày tập về dạng dd/mm/yyyy
 
     std::string temp1 = str.substr(0,2);
-    p2.SetDay(temp1);
+    p1.SetDay(temp1);
     temp1 = str.substr(3,2);
-    p2.SetMonth(temp1);
+    p1.SetMonth(temp1);
     temp1 = str.substr(6);
-    p2.SetYear(temp1);
+    p1.SetYear(temp1);
 
     int n;
     std::cout << "\nNhap so thang tap: ";

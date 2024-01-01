@@ -45,15 +45,12 @@ public:
     int Input(const std::string&);
 
     int TotalPrice() {
-        return this->p3.GetPrice()*this->p3.GetNumberOfMonth();
+        return this->p3.GetPrice()*this->p2.GetNumberOfMonth();
     }
 
-    // int GetPrice(){
-    //     return this->p3.PriceVIP;
-    // }
 
     int GetMonth(){
-        std::string temp = this->p3.GetMonth();
+        std::string temp = this->p1.GetMonth();
         (temp.length() == 1) ? temp = "0"+temp : temp;
         return (static_cast<int>(temp[0])-'0')*10 + (static_cast<int>(temp[1])-'0');
     }

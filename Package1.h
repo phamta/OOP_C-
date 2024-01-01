@@ -26,21 +26,6 @@ public:
     std::string YearNow;
     static int PriceEachDay;
 
-    // void SetTime(){
-    //     // Lấy thời gian hiện tại
-    //     auto now = std::chrono::system_clock::now();
-
-    //     // Chuyển đổi thời gian hiện tại thành dạng chuỗi
-    //     std::time_t currentTime = std::chrono::system_clock::to_time_t(now);
-
-    //     // Chuyển đổi thời gian thành cấu trúc tm
-    //     std::tm* timeInfo = std::localtime(&currentTime);
-    //     Year = std::to_string(timeInfo->tm_year+1900);
-    //     MonthNow = m[timeInfo->tm_mon];
-    //     DayNow = std::to_string(timeInfo->tm_mday);
-
-    // }
-
     Package1(){
         // Lấy thời gian hiện tại
         auto now = std::chrono::system_clock::now();
@@ -59,27 +44,27 @@ public:
         return this->PriceEachDay;
     }
 
-    std::string GetDay(){
+    virtual std::string GetDay(){
         return this->Day;
     }
 
-    void SetDay(const std::string& day){
+    virtual void SetDay(const std::string& day){
         this->Day = day;
     }
 
-    std::string GetMonth() {
+    virtual std::string GetMonth() {
         return this->Month;
     }
 
-    void SetMonth(const std::string& month){
+    virtual void SetMonth(const std::string& month){
         this->Month = month;
     }
 
-    std::string GetYear(){
+    virtual std::string GetYear(){
         return this->Year;
     }
 
-    void SetYear(const std::string& year){
+    virtual void SetYear(const std::string& year){
         this->Year = year;
     }
 

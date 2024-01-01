@@ -19,16 +19,13 @@ public:
     int Check(const std::string&); // kiem tra mot so dien thoai co nam trong danh sach khong
     void DeleteCustomer(const std::string&); // xoa khach hang theo
     void DeleteCustomer(const int&); // xoa khach hang theo
-    void Update(const std::string&);
+    void Update(const std::string&); 
     void FindCustumer(const std::string&);
     void Upgrade(CustumerType2);
     // void ShowPay();
 
-    void LastHope(const int&);
     void AddRevenue(const int&, const int&);
-    void Revenue();
     void ShowRevenue();
-    void Revenue1();
 
     void ReadRevenueFromFile(const std::string&);
     void UpdateRevenueFile(const std::string&);

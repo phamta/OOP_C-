@@ -45,13 +45,13 @@ void CustumerType1::WriteFile(const std::string& filename){
         ofs << std::endl << "   ";
     }
 
-ofs << FullName << "," << BornYear << "," << Gender << "," << PhoneNumber;
-for(int i = 0; i < History.size(); ++i) {
-    ofs << "," << History[i];
-}
-ofs << "-";
+    ofs << FullName << "," << BornYear << "," << Gender << "," << PhoneNumber;
+    for(int i = 0; i < History.size(); ++i) {
+        ofs << "," << History[i];
+    }
+    ofs << "-";
 
-ofs.close();
+    ofs.close();
 }
 
 
@@ -264,7 +264,7 @@ void CustumerType1::AddTrainDay(){
     
     if(s[2] != '/') s = "0" + s;
     if(s[5] != '/') s.insert(3,"0");
-    std::cout << this->History.size() << std::endl;
+    // std::cout << this->History.size() << std::endl;
     this->History.push_back(s);    
 }
 

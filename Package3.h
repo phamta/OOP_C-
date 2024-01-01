@@ -19,21 +19,13 @@ public:
         return this->Services.size();
     }
 
-    // std::string GetService(int& choice){
-    //     return this->Services[choice];
-    // }
-
     int GetPrice(){
         return this->PriceVIP;
     }
 
     std::string GetService();
-    void AddService();
-    void ChangeService();
-    void DeleteService();
     void ReadFile(const std::string&);
     void WriteFile(const std::string&);
-    void ChangePrice();
 };
 
 #endif

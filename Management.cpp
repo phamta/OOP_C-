@@ -111,44 +111,6 @@ void Management<T>::Upgrade(CustumerType2 ct2){
     T ct3;
     ct3.Upgrade(ct2);
     AddCustomer(ct3);
-
-    // std::cout << "Nhap so thang con lai cua goi tap 2: " << std::endl;
-    // int remainingMonths;
-    // std::cin >> remainingMonths;
-
-    // int remainingPrice = remainingMonths*ct2.GetPrice();
-    // int money = ct3.TotalPrice() - remainingPrice;
-    // int month = ct3.GetMonth();
-    // std::string s = std::to_string(money);
-    // (month < 10) ? s = "0"+ std::to_string(month) +s : s = std::to_string(month)+s;
-    // return s;
-    // return std::to_string(remainingPrice) + std::to_string(ct3.TotalPrice());
-}
-
-template<>
-void Management<CustumerType1>::LastHope(const int& index){
-    customers[index].AddTrainDay();
-}
-
-template<typename T>
-void Management<T>::Revenue() {
-    // revenue.clear(); // Xóa các phần tử trong vector doanh thu
-
-    // for (int i = 0; i < 12; ++i) {
-    //     int MonthRevenue = 0;
-    //     for (const T& customer : customers) {
-    //         std::string month = customer.GetPackage().GetMonth();
-    //         if (customer.GetPackage().StringToInt(month) == i + 1) { // Kiểm tra nếu khách hàng tập luyện trong tháng i + 1
-    //             MonthRevenue += customer.TotalPrice();
-    //         }
-    //     }
-    //     revenue.push_back(MonthRevenue);
-    // }
-    for (size_t i = 0; i < customers.size(); ++i)
-    {
-        revenue[customers[i].GetMonth()-1] += customers[i].TotalPrice();
-    }
-       
 }
 
 template<typename T>
@@ -168,25 +130,6 @@ void Management<T>::ShowRevenue() {
 template<typename T>
 void Management<T>::AddRevenue(const int& money, const int& index){
     revenue[index] += money;
-}
-
-template<>
-void Management<CustumerType1>::Revenue1() {
-
-    int month;
-    int temp1, temp2;
-    for (size_t i = 0; i < customers.size(); ++i)
-    {
-        // CustumerType1& ct1 = customers[i];
-        std::vector<std::string> history = customers[i].GetHistory();
-        for (size_t j = 0; j<history.size(); ++j)
-        {
-            temp1 = static_cast<int>(history[j][3]) - '0';
-            temp2 = static_cast<int>(history[j][4]) - '0';
-            month = temp1*10 + temp2;
-            revenue[month-1] += 50;    
-        }
-    }  
 }
 
 template<typename T>

@@ -29,7 +29,7 @@ public:
         return this->FullName;
         
     }
-
+    void ShowDate();
     void Show();
     // void Update();
     virtual void ReadFile(std::ifstream&);
@@ -42,13 +42,8 @@ public:
         return this->p2.GetPrice()*p2.GetNumberOfMonth();
     }
 
-    // Tra ve gia goi tap moi thang
-    // int GetPrice(){
-    //     return this->p2.PriceEachMonth;
-    // }
-
     int GetMonth(){
-        std::string temp = this->p2.GetMonth();
+        std::string temp = this->p1.GetMonth();
         (temp.length() == 1) ? temp = "0"+temp : temp;
         return (static_cast<int>(temp[0])-'0')*10 + (static_cast<int>(temp[1])-'0');
     }

@@ -37,69 +37,30 @@ int ChooseType(std::string s1 = "Cho khach hang tap theo ngay ",
     return choice;
 }
 
-int ChooseChange(){
-    int input;
-    int choice = 1;
-    int maxChoice = 2;
-    do
-    {
-        system("cls");
-        std::cout << (choice == 1 ? ">" : " ") << "Thay doi gia goi tap hang thang loai VIP" << std::endl;
-        std::cout << (choice == 2 ? ">" : " ") << "Cap nhat dich vu cho khach VIP" << std::endl;
-
-        input = getch();
-        if (input == 80) { // Mũi tên đi xuống (lên)
-            if (choice == maxChoice) {
-                choice = 1; // Di chuyển lên đầu danh sách
-            } else {
-                choice++;
-            }
-        } else if (input == 72) { // Mũi tên lên (xuống)
-            if (choice == 1) {
-                choice = maxChoice; // Di chuyển xuống cuối danh sách
-            } else {
-                choice--;
-            }
-        }
-    } while (input != 13);
-    
-    return choice;
-}
-
 int main(){
 
     int input;
     int choice = 1;
     int maxChoice = 9; // so luong lua chon trong menu
 
-    // int temp1 = 0;
-    // int temp2 = 0;
-    // int temp3 = 0;
-
-    int index;
-
     Management<CustumerType1> m1;
     m1.ReadFile("text1.txt");
     m1.ReadRevenueFromFile("revenue1.txt");
-    // m1.Revenue1();
 
     Management<CustumerType2> m2;
     m2.ReadFile("text2.txt");
     m2.ReadRevenueFromFile("revenue2.txt");
-    // m2.Revenue();
 
     Management<CustumerType3> m3;
     m3.ReadFile("text3.txt");
     m3.ReadRevenueFromFile("revenue3.txt");
-    // m3.Revenue();
 
     CustumerType1 ct1;
     CustumerType2 ct2;
     CustumerType3 ct3;
 
-    std::string s;
-    int temp1;
-    int temp2;
+    std::string s; // nhap so dien thoai khach hang vao 
+    int index; // luu lai chi so cua khach hang trong danh sach
 
     Package1 p1;
     Package2 p2;
@@ -183,6 +144,7 @@ int main(){
                             m2.AddCustomer(ct2);
                             std::cout << "Da them khach hang tap theo dinh ki" << std::endl;
                             m2.AddRevenue(ct2.TotalPrice(),ct2.GetMonth()-1);
+                            // std::cout << ct2.TotalPrice() << " " << ct2.GetMonth()-1 << std::endl;
 
                         }              
                         else{
@@ -203,6 +165,7 @@ int main(){
                             m3.AddCustomer(ct3);
                             std::cout << "Da them khach hang tap goi VIP" << std::endl;
                             m3.AddRevenue(ct3.TotalPrice(),ct3.GetMonth()-1);
+                            // std::cout << ct3.TotalPrice() << " " << ct3.GetMonth()-1 << std::endl;
 
                         }              
                         else{
@@ -257,20 +220,18 @@ int main(){
                 case 4: // Xem danh sach khach hang
                     switch (ChooseType())
                     {
-                        case 1:
-
-                    std::cout << "Danh sach " << ct1.NameCustumerType1 << " hien tai" << std::endl;
-                    m1.ShowAllCustomers();
-                    break;
-                        case 2:
-
-                    std::cout << "Danh sach " << ct2.NameCustumerType2 << " hien tai" << std::endl;
-                    m2.ShowAllCustomers();
-                    break;
-                        case 3:
-                    std::cout << "Danh sach " << ct3.NameCustumerType3 << " hien tai" << std::endl;
-                    m3.ShowAllCustomers();
-                    break;
+                    case 1:
+                        std::cout << "Danh sach " << ct1.NameCustumerType1 << " hien tai" << std::endl;
+                        m1.ShowAllCustomers();
+                        break;
+                    case 2:
+                        std::cout << "Danh sach " << ct2.NameCustumerType2 << " hien tai" << std::endl;
+                        m2.ShowAllCustomers();
+                        break;
+                    case 3:
+                        std::cout << "Danh sach " << ct3.NameCustumerType3 << " hien tai" << std::endl;
+                        m3.ShowAllCustomers();
+                        break;
                     }
                     break;
 
@@ -306,17 +267,9 @@ int main(){
                         // return;
                     }
                     else{
-                        // s = m3.Upgrade(m2[index]);
-                        // temp1 = p1.StringToInt(s.substr(0,2));
-                        // temp2 = p1.StringToInt(s.substr(2));
-                        // if(temp2>0){
-                        //     m3.AddRevenue(temp2,temp1-1);
-                        //     std::cout << "So tien can tra them la: " << temp2 << "000VND" << std::endl;
-                        // }else{
-                        //     m2.AddRevenue(temp2,m2[index].GetMonth()-1);
-                        //     std::cout << "So tien hoan lai la: " << -1*temp2 << "000VND" << std::endl;;
-                        //     }
+                        //Nhap thong tin ve goi tap VIP va them khach hang vao danh sach khach hang loai VIP
                         m3.Upgrade(m2[index]);
+                        //Xoa khach hang khoi loai tap dinh ky
                         m2.DeleteCustomer(index);
                     }
                     break;
@@ -325,29 +278,12 @@ int main(){
                     switch (ChooseType("Goi tap theo ngay","Goi tap theo thang","Goi tap VIP"))
                     {
                     case 1:
-                        std::cout << "Gia moi ngay tap " << p1.PriceEachDay << "000VND" << std::endl;
+                        std::cout << "Gia moi ngay tap " << p3.PriceEachDay << "000VND" << std::endl;
                         break;
                     case 2:
-                        // p2.ChangePrice();
                         std::cout << "Gia moi thang tap " << p2.PriceEachMonth << "000VND" << std::endl;
                         break;
                     case 3:
-                        // if(ChooseChange() == 1){
-                        //     p3.ChangePrice(); 
-                        // }else{
-                        //     switch (ChooseType("Them dich vu","Chinh sua dich vu","Xoa dich vu"))
-                        //     {
-                        //     case 1:
-                        //         p3.AddService();
-                        //         break;
-                        //     case 2:
-                        //         p3.ChangeService();
-                        //         break;
-                        //     case 3:
-                        //         p3.DeleteService();
-                        //         break;
-                        //     }
-                        // }
                         std::cout << "Gia moi thang goi VIP " << p3.PriceVIP << "000VND" << std::endl;
                     }
                     break;
@@ -356,15 +292,15 @@ int main(){
                     switch (ChooseType())
                     {
                     case 1:
-                        
+                        // In ra doanh thu cua goi tap theo ngay hang thang
                         m1.ShowRevenue();
                         break;
                     case 2:
-                        
+                        // In ra doanh thu cua goi tap dinh ky hang thang
                         m2.ShowRevenue();
                         break;
                     case 3:
-                        
+                        // In ra doanh thu cua goi tap VIP hang thang
                         m3.ShowRevenue();
                         break;
                     
@@ -372,13 +308,17 @@ int main(){
                     break;
 
                 case 9: // Thoat
+                // Ghi danh sach khach hang tap theo ngay vao file text1.txt
                     m1.WriteFile("text1.txt");
+                // Cap nhat lai doanh thu khach hang tap theo ngay vao file revenue1.txt
                     m1.UpdateRevenueFile("revenue1.txt");
+                // Ghi danh sach khach hang tap dinh ky vao file text2.txt
                     m2.WriteFile("text2.txt");
+                // Cap nhat lai doanh thu khach hang tap dinh ky vai file revenue2.txt
                     m2.UpdateRevenueFile("revenue2.txt");
                     m3.WriteFile("text3.txt");
                     m3.UpdateRevenueFile("revenue3.txt");
-                    p3.WriteFile("service.txt");
+                    // p3.WriteFile("service.txt");
                     std::cout << "Du lieu da duoc cap nhat truoc khi ket thuc chuong trinh" << std::endl;
                     // m1.ShowPay();
                     exit(1);
@@ -390,13 +330,5 @@ int main(){
 
     }while (input != '0');
 
-    // ct1.Nhap();
-    // ct1.Show();
-    // m1.Revenue1();
-    // m1.ShowRevenue();
-    // m2.Revenue();
-    // m2.ShowRevenue();
-    // m3.Revenue();
-    // m3.ShowRevenue();
     return 0;
 }

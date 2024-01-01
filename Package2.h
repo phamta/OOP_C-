@@ -11,11 +11,11 @@ protected:
 public:
     static int PriceEachMonth;
 
-    int GetNumberOfMonth() const{
+    virtual int GetNumberOfMonth(){
         return this->NumberOfMonth;
     }
 
-    void SetNumberOfMonth(int& numberofmonth){
+    virtual void SetNumberOfMonth(int& numberofmonth){
         this->NumberOfMonth = numberofmonth;
     }
 
