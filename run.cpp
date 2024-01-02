@@ -73,7 +73,7 @@ int main(){
     {
         system("cls");
         SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN);
-        std::cout <<"         MENU           \n";
+        std::cout <<"                     MENU\n";
         std::cout << "**      " << (choice == 1 ? '>' : ' ') << " Them thong tin khach hang         ** \n";
         std::cout << "**      " << (choice == 2 ? '>' : ' ') << " Xoa thong tin khach hang          ** \n";
         std::cout << "**      " << (choice == 3 ? '>' : ' ') << " Chinh sua thong tin khach hang    ** \n";
