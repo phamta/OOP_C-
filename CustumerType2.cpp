@@ -80,11 +80,8 @@ void CustumerType2::WriteFile(const std::string& filename){
 }
 
 int CustumerType2::Input(const std::string& s){
-    ++CustumerType2::Count2;
-    this->CustumerNumber = "N" + std::string(3-std::to_string(CustumerType2::Count2).length(),'0') + std::to_string(CustumerType2::Count2);
     //neu thoat trong khi nhap thong tin tra ve 0
     if(!Human::Nhap(s)){
-        --CustumerType2::Count2;
         return 0;
     }
 
@@ -92,7 +89,6 @@ int CustumerType2::Input(const std::string& s){
     std::string str = this->CustumerType1::InputTrainDay();
     if (str == "0")
     {
-        --CustumerType2::Count2;
         return 0;
     }
     
@@ -110,5 +106,7 @@ int CustumerType2::Input(const std::string& s){
     std::cout << "\nNhap so thang tap: ";
     std::cin >> n;
     this->p2.SetNumberOfMonth(n); 
+    ++CustumerType2::Count2;
+    this->CustumerNumber = "N" + std::string(3-std::to_string(CustumerType2::Count2).length(),'0') + std::to_string(CustumerType2::Count2);
     return 1; // Nhap tat ca thong tin tra ve 1
 }
