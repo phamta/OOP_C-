@@ -62,8 +62,6 @@ int main(){
     std::string s; // nhap so dien thoai khach hang vao 
     int index; // luu lai chi so cua khach hang trong danh sach
 
-    Package1 p1;
-    Package2 p2;
     Package3 p3;
     p3.ReadFile("service.txt");
 
@@ -144,12 +142,10 @@ int main(){
                             m2.AddCustomer(ct2);
                             std::cout << "Da them khach hang tap theo dinh ki" << std::endl;
                             m2.AddRevenue(ct2.TotalPrice(),ct2.GetMonth()-1);
-                            // std::cout << ct2.TotalPrice() << " " << ct2.GetMonth()-1 << std::endl;
 
                         }              
                         else{
                             std::cout << "Da co thong tin cua khach hang" << std::endl;
-                            // std::cout << m2[0].GetMonth() << std::endl;
                         }
                         break;
 
@@ -165,7 +161,6 @@ int main(){
                             m3.AddCustomer(ct3);
                             std::cout << "Da them khach hang tap goi VIP" << std::endl;
                             m3.AddRevenue(ct3.TotalPrice(),ct3.GetMonth()-1);
-                            // std::cout << ct3.TotalPrice() << " " << ct3.GetMonth()-1 << std::endl;
 
                         }              
                         else{
@@ -281,7 +276,7 @@ int main(){
                         std::cout << "Gia moi ngay tap " << p3.PriceEachDay << "000VND" << std::endl;
                         break;
                     case 2:
-                        std::cout << "Gia moi thang tap " << p2.PriceEachMonth << "000VND" << std::endl;
+                        std::cout << "Gia moi thang tap " << p3.PriceEachMonth << "000VND" << std::endl;
                         break;
                     case 3:
                         std::cout << "Gia moi thang goi VIP " << p3.PriceVIP << "000VND" << std::endl;
