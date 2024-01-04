@@ -112,7 +112,7 @@ void CustumerType1::Update(){
                     }
                     do 
                     {
-                        std::cout << "Nhap ten khach hang : " << std::endl;
+                        std::cout << "Cap nhat ten khach hang : " << std::endl;
                         getline(std::cin, s);
                         if(!e.CheckName(s)){
                             std::cout << "Ten khong duoc chua ki tu khac chu. Vui long nhap lai." << std::endl;
@@ -124,22 +124,36 @@ void CustumerType1::Update(){
                     break;
                 case 2:
                     temp = 1;
-                    std::cout << "Cap nhat nam sinh : ";
-                    std::cin >> this->BornYear;
-                    std::cout << "Da cap nhat lai nam sinh cua khach hang" << std::endl;
+                    do
+                    {
+                        std::cout<<"Nhap nam sinh" << std::endl;
+                        std::cin >> s;
+                    } while (!e.CheckNumber(s,1923,2005));
+                    this->SetBornYear(s);
                     break;
 
                 case 3:
                     temp = 1;
                     std::cout << "Cap nhat lai gioi tinh : ";
-                    this->Gender = Human::ChooseGender();
-                    std::cout << "Da cap nhat lai gioi tinh cua khach hang " << std::endl;
+                    s = Human::ChooseGender();
+                    this->SetGender(s);
                     break;
                 case 4:
                     temp = 1;
-                    std::cout << "Nhap so dien thoai moi : ";
-                    std::cin >> this->PhoneNumber;
-                    std::cout << "Da cap nhat lai so dien thoai cua khach hang" << std::endl;
+                    do
+                    {
+                        do
+                        {
+                            std::cout << "Nhap vao so dien thoai cua khach hang" << std::endl;
+                            getline(std::cin,s);
+
+                        } while (!e.CheckPhone(s));
+
+                        if(s.length() != 10){
+                        std::cout << "So dien thoai vua nhap khong du 10 ki tu. Vui long nhap lai" << std::endl;
+                        }
+                    } while (!e.CheckLength(s,10));
+                    this->SetPhoneNumber(s);
                     break;
                 case 5:
                     std::cout << "Da thoat khoi muc chinh sua thong tin" << std::endl;

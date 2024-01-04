@@ -31,8 +31,6 @@ bool Exp::CheckNumber(const std::string& s, const int& low, const int& high) {
     if (!CheckPhone(s)) {
         return false;
     }
-
-    // return CheckPhone(s);
     
     int num = 0;
     for (size_t i = 0; i < s.length(); ++i) {

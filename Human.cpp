@@ -110,7 +110,7 @@ int Human::Nhap(const std::string& s){
     int temp1 = 0, temp2 = 0, temp3 = 0;
 
     std::string name,bornyear,gender;
-    this->PhoneNumber = s;
+    this->SetPhoneNumber(s);
 
     do
     {
@@ -172,9 +172,9 @@ int Human::Nhap(const std::string& s){
             case 4:
                 if(temp1+ temp2+temp3 == 3){
                     std::cout << "Da hoan thanh viec nhap thong tin khach hang " << std::endl;
-                    this->FullName = name;
-                    this->BornYear = bornyear;
-                    this->Gender = gender;
+                    this->SetName(name);
+                    this->SetBornYear(bornyear);
+                    this->SetBornYear(gender);
                     
                     system("pause");
                     return 1;
