@@ -6,17 +6,22 @@ int CustumerType1::Count1 = 1;
 
 void CustumerType1::ReadFile(std::ifstream& ifs) {
     std::string line;
+    std::string s;
     if (std::getline(ifs, line)) {
         std::istringstream iss(line);
-        getline(iss, FullName, ',');
-        getline(iss, BornYear, ',');
+        getline(iss, s, ',');
+        this->SetName(s);
+        getline(iss, s, ',');
+        this->SetBornYear(s);
         ifs.ignore(1, ',');
-        getline(iss, Gender, ',');
+        getline(iss, s, ',');
+        this->SetGender(s);
         ifs.ignore(1, ',');
-        getline(iss, PhoneNumber, ',');
+        getline(iss, s, ',');
+        this->SetPhoneNumber(s);
         ifs.ignore(1, ',');
 
-        std::string s;
+        // std::string s;
         History.clear();
 
         while (getline(iss, s, ',')) {
@@ -45,7 +50,7 @@ void CustumerType1::WriteFile(const std::string& filename){
         ofs << std::endl << "   ";
     }
 
-    ofs << FullName << "," << BornYear << "," << Gender << "," << PhoneNumber;
+    ofs << this->GetName() << "," << this->GetBornYear() << "," << this->GetGender() << "," << this->GetPhoneNumber();
     for(int i = 0; i < History.size(); ++i) {
         ofs << "," << History[i];
     }
@@ -71,11 +76,13 @@ void CustumerType1::Update(){
     int input;
     int choice = 1;
     int MaxChoice = 5;
+    Exp e;
+    std::string s;
     do{
         system("cls");
         std::cout<<"Chon dich vu muon cap nhat:"<<std::endl;
             std::cout << (choice == 1 ? ">":" ") << "Ten khach hang hien tai: " << this->GetName() << std::endl;
-            std::cout << (choice == 2 ? ">":" ") << "Nam sinh khach hang hien tai: " << this->GetYear() << std::endl;
+            std::cout << (choice == 2 ? ">":" ") << "Nam sinh khach hang hien tai: " << this->GetBornYear() << std::endl;
             std::cout << (choice == 3 ? ">":" ") << "Gioi tinh khach hang hien tai: " << this->GetGender() << std::endl;
             std::cout << (choice == 4 ? ">":" ") << "So dien thoai khach hang hien tai: " << this->GetPhoneNumber() << std::endl;
             std::cout << (choice == 5 ? ">":" ") << "Thoat" << std::endl;
@@ -102,9 +109,18 @@ void CustumerType1::Update(){
                     if(temp == 1){
                         std::cin.ignore();
                         temp = 0;
-                    } 
-                    std::cout << "Cap nhat ten : " << std::endl;
-                    getline(std::cin,this->FullName);
+                    }
+                    do 
+                    {
+                        std::cout << "Nhap ten khach hang : " << std::endl;
+                        getline(std::cin, s);
+                        if(!e.CheckName(s)){
+                            std::cout << "Ten khong duoc chua ki tu khac chu. Vui long nhap lai." << std::endl;
+                            continue;
+                        }
+                        this->SetName(s);
+                        break;
+                    } while (1);
                     break;
                 case 2:
                     temp = 1;

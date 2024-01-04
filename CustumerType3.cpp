@@ -13,10 +13,8 @@ void CustumerType3::Show(){
 }
 
 void CustumerType3::Upgrade(CustumerType2& ct2){
-    ++Count3;
-    this->CustumerNumber = "VIP" + std::string(3-std::to_string(CustumerType3::Count3).length(),'0') + std::to_string(CustumerType3::Count3);
     this->FullName = ct2.GetName();
-    this->BornYear = ct2.GetYear();
+    this->BornYear = ct2.GetBornYear();
     this->Gender = ct2.GetGender();
     this->PhoneNumber = ct2.GetPhoneNumber();
 
@@ -38,37 +36,44 @@ void CustumerType3::Upgrade(CustumerType2& ct2){
     this->p3.SetNumberOfMonth(n);
 
     this->Service = this->p3.GetService();
+    ++Count3;
+    this->CustumerNumber = "VIP" + std::string(3-std::to_string(CustumerType3::Count3).length(),'0') + std::to_string(CustumerType3::Count3);
 }
 
 void CustumerType3::ReadFile(std::ifstream& ifs){
 
     ++CustumerType3::Count3;
-    getline(ifs,this->CustumerNumber,',');
-    
-    getline(ifs, this->FullName,',');
+    std::string s;
+    getline(ifs,s,',');
+    this->SetCustumerNumber(s);
 
-    getline(ifs,BornYear,',');
+    getline(ifs, s,',');
+    this->SetName(s);
+
+    getline(ifs,s,',');
+    this->SetBornYear(s);
     ifs.ignore(1, ',');
     
-    getline(ifs,this->Gender,',');
+    getline(ifs,s,',');
+    this->SetGender(s);
     ifs.ignore(1, ',');
 
-    getline(ifs,this->PhoneNumber,',');
+    getline(ifs,s,',');
+    this->SetPhoneNumber(s);
     ifs.ignore(1, ',');
-
-    std::string day, month,year;
+    
     int number;
 
-    getline(ifs,day,',');    
-    p1.SetDay(day);
+    getline(ifs,s,',');    
+    p1.SetDay(s);
     ifs.ignore(1, ',');
 
-    getline(ifs,month,',');
-    p1.SetMonth(month);
+    getline(ifs,s,',');
+    p1.SetMonth(s);
     ifs.ignore(1, ',');
 
-    getline(ifs,year,',');
-    p1.SetYear(year);
+    getline(ifs,s,',');
+    p1.SetYear(s);
     ifs.ignore(1, ',');
 
     ifs >> number;
@@ -90,7 +95,7 @@ void CustumerType3::WriteFile(const std::string& filename){
     else{
         ofs << std::endl;
     }
-    ofs << this->GetCustumerNumer() << "," <<FullName << "," << BornYear << ", "  << Gender << ", " << PhoneNumber << ", "
+    ofs << this->GetCustumerNumer() << "," << this->GetName() << "," << this->GetBornYear() << ", " << this->GetGender() << ", " << this->GetPhoneNumber() << ", "
         << p1.GetDay() << ", " << p1.GetMonth() << ", " << p1.GetYear() << ", " << p2.GetNumberOfMonth() 
         << "," << this->ChooseService();
 

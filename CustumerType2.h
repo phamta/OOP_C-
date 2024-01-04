@@ -15,12 +15,12 @@ public:
     static int Count2; // dem so luong khach loai 2 dung so luong ni de lam ma kh vd count2 = 1 -> ma la N001
 
     // Lay ra ma khach hang
-    std::string GetCustumerNumer(){
+    virtual std::string GetCustumerNumer(){
         return this->CustumerNumber;
     }
 
     // Cap nhat ma khach hang
-    void SetCustumerNumber(std::string& custumernumber){
+    virtual void SetCustumerNumber(std::string& custumernumber){
         this->CustumerNumber = custumernumber;
     }
 

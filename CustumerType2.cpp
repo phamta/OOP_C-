@@ -27,32 +27,37 @@ void CustumerType2::Show(){
 
 void CustumerType2::ReadFile(std::ifstream& ifs){
     ++CustumerType2::Count2;
-    getline(ifs,this->CustumerNumber,',');
+    std::string s;
+    getline(ifs,s,',');
+    this->SetCustumerNumber(s);
 
-    getline(ifs, this->FullName,',');
+    getline(ifs, s,',');
+    this->SetName(s);
 
-    getline(ifs,BornYear,',');
+    getline(ifs,s,',');
+    this->SetBornYear(s);
     ifs.ignore(1, ',');
     
-    getline(ifs,this->Gender,',');
+    getline(ifs,s,',');
+    this->SetGender(s);
     ifs.ignore(1, ',');
 
-    getline(ifs,this->PhoneNumber,',');
+    getline(ifs,s,',');
+    this->SetPhoneNumber(s);
     ifs.ignore(1, ',');
-
-    std::string day, month,year;
+    
     int number;
 
-    getline(ifs,day,',');    
-    p1.SetDay(day);
+    getline(ifs,s,',');    
+    p1.SetDay(s);
     ifs.ignore(1, ',');
 
-    getline(ifs,month,',');
-    p1.SetMonth(month);
+    getline(ifs,s,',');
+    p1.SetMonth(s);
     ifs.ignore(1, ',');
 
-    getline(ifs,year,',');
-    p1.SetYear(year);
+    getline(ifs,s,',');
+    p1.SetYear(s);
     ifs.ignore(1, ',');
 
     ifs >> number;
@@ -73,7 +78,7 @@ void CustumerType2::WriteFile(const std::string& filename){
     else{
         ofs << std::endl;
     }
-    ofs << this->GetCustumerNumer() << "," <<  FullName << "," << BornYear << ", " << Gender << ", " << PhoneNumber << ", "
+    ofs << this->GetCustumerNumer() << "," << this->GetName() << "," << this->GetBornYear() << ", " << this->GetGender() << ", " << this->GetPhoneNumber() << ", "
         << p1.GetDay() << ", " << p1.GetMonth() << ", " << p1.GetYear() << ", " << p2.GetNumberOfMonth();
 
     ofs.close();

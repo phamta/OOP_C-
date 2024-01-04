@@ -23,16 +23,32 @@ public:
         return this->FullName;
     }
 
-    std::string GetYear(){
+    void SetName(const std::string& fullname){
+        this->FullName = fullname;
+    }
+
+    std::string GetBornYear(){
         return this->BornYear;
+    }
+
+    void SetBornYear(const std::string& bornyear){
+        this->BornYear = bornyear;
     }
 
     std::string GetGender(){
         return this->Gender;
     }
 
+    void SetGender(const std::string& gender){
+        this->Gender = gender;
+    }
+
     std::string GetPhoneNumber(){
         return this->PhoneNumber;
+    }
+
+    void SetPhoneNumber(const std::string& phonenumber){
+        this->PhoneNumber = phonenumber;
     }
 
     void Input(const std::string&);
