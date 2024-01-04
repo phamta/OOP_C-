@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <conio.h> // de dung cau lenh input = getch() trong ham chon gioi tinh dung phim len xuong voi Enter
 #include "Exp.h"
+#include "Package1.h"
 
 class Human{
 protected:

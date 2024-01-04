@@ -27,23 +27,26 @@ bool Exp::CheckLength(const std::string& s, const int& l){
     return s.length() == l;
 }
 
-bool Exp::CheckNumber(const std::string& s, const int& low, const int& high) {
+bool Exp::CheckNumber(const std::string& s, const std::string& yearnow) {
     if (!CheckPhone(s)) {
         return false;
     }
     
     int num = 0;
     for (size_t i = 0; i < s.length(); ++i) {
-        if (s[i] >= '0' && s[i] <= '9') {
-            num = num * 10 + static_cast<int>(s[i] - '0');
-        } else {
-            std::cout << "Chuoi khong hop le!" << std::endl;
-            return false;
-        }
+        num = num * 10 + static_cast<int>(s[i] - '0');    
     }
+
+    int year = 0;
+    for (size_t i = 0; i < yearnow.length(); ++i) {
+        year = year * 10 + static_cast<int>(yearnow[i] - '0');    
+    }
+    // khach hang co do tuoi tu 18 den 80
+    int high = year - 18;
+    int low = year - 80;
     
     if (!(num >= low && num <= high)) {
-        std::cout << "Nhap so trong doan [" << low << "," << high << "]" << std::endl;
+        std::cout << "Khach hang co do tuoi tu 18 den 80" << std::endl;
         return false;
     }
     

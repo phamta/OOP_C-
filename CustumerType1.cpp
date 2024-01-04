@@ -128,7 +128,7 @@ void CustumerType1::Update(){
                     {
                         std::cout<<"Nhap nam sinh" << std::endl;
                         std::cin >> s;
-                    } while (!e.CheckNumber(s,1923,2005));
+                    } while (!e.CheckNumber(s,this->p1.YearNow));
                     this->SetBornYear(s);
                     break;
 

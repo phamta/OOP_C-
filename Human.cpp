@@ -55,32 +55,6 @@ std::string Human::ChooseGender(){
         }
 }
 
-void Human::Input(const std::string& s){
-    Exp e;
-    do
-    {
-        std::cout << "Nhap ten khach hang: " << std::endl;
-        getline(std::cin, this->FullName);
-        if(!e.CheckName(this->FullName)){
-            std::cout << "Ten khong duoc chua ki tu khac chu. Vui long nhap lai." << std::endl;
-            continue;
-        }
-        break;
-    } while (1);
-    
-    this->Gender = this->ChooseGender();
-
-
-    do
-    {
-        std::cout<<"Nhap nam sinh" << std::endl;
-        std::cin >> this->BornYear;
-    } while (!e.CheckNumber(this->BornYear,1023,2005));
-
-
-    this->PhoneNumber = s;
-}
-
 std::string Human::Check(){
     std::string s;
     Exp e;
@@ -104,6 +78,7 @@ std::string Human::Check(){
 int Human::Nhap(const std::string& s){
     // system("cls");
     Exp e;
+    Package1 p1;
     int input;
     int choice = 1;
     int MaxChoice = 5;
@@ -160,7 +135,7 @@ int Human::Nhap(const std::string& s){
                 {
                     std::cout<<"Nhap nam sinh" << std::endl;
                     std::cin >> bornyear;
-                } while (!e.CheckNumber(bornyear,1923,2005));
+                } while (!e.CheckNumber(bornyear,p1.YearNow));
                 temp2 = 1;
                 break;
             case 3:

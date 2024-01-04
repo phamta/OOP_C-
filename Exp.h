@@ -8,7 +8,7 @@ public:
     bool CheckName(const std::string&);
     bool CheckPhone(const std::string&);
     bool CheckLength(const std::string&, const int&);
-    bool CheckNumber(const std::string&, const int&, const int&);
+    bool CheckNumber(const std::string&,const std::string&);
 
 };
 
