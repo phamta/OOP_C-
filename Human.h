@@ -52,7 +52,6 @@ public:
         this->PhoneNumber = phonenumber;
     }
 
-    void Input(const std::string&);
     std::string Check();
     int Nhap(const std::string&);
 };

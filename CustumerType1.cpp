@@ -281,8 +281,7 @@ std::string CustumerType1::InputTrainDay(){
         }
         
     } while (input != '0');
-
-    // return day + "/" + month;    
+  
 }
 
 void CustumerType1::AddTrainDay(){
@@ -294,13 +293,13 @@ void CustumerType1::AddTrainDay(){
     
     if(s[2] != '/') s = "0" + s;
     if(s[5] != '/') s.insert(3,"0");
-    // std::cout << this->History.size() << std::endl;
+
     this->History.push_back(s);    
 }
 
 int CustumerType1::Input(const std::string& s){
     if(!Human::Nhap(s)) return 0;
-    // std::cout << "1" << std::endl;
+
     this->History.clear();
     this->AddTrainDay();
     return 1;

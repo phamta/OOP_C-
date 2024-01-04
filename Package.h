@@ -9,9 +9,6 @@
 
 class Package
 {
-private:
-    
-
 public:
     virtual int GetPrice() = 0;
 };

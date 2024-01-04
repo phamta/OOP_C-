@@ -15,11 +15,10 @@ void Management<T>::ShowAllCustomers(){
         std::cout<<"Danh sach khach hang loai nay dang trong!"<<std::endl << std::endl;
         return;
     }
-    // std::cout << "Danh sach khach hang " << CustumerType1::NameCustumerType1 <<  std::endl << std::endl;
+
     for(int i=0; i<customers.size(); ++i){
         customers[i].Show();
         std::cout << std::endl;
-        // std::cout << "------------------------------------------" << std::endl;
     }  
 }
 
@@ -144,7 +143,6 @@ void Management<T>::ReadRevenueFromFile(const std::string& filename) {
         }
 
         inputFile.close();
-        // std::cout << "Du lieu da duoc doc tu file thanh cong." << std::endl;
     }
     else {
         std::cout << "Khong the mo file de doc du lieu." << std::endl;
@@ -164,7 +162,6 @@ void Management<T>::UpdateRevenueFile(const std::string& filename) {
         outputFile << revenue[11];
 
         outputFile.close();
-        // std::cout << "Du lieu da duoc ghi vao file thanh cong." << std::endl;
     }
     else {
         std::cout << "Khong the mo file de ghi du lieu." << std::endl;

@@ -22,7 +22,6 @@ public:
     void Update(const std::string&); 
     void FindCustumer(const std::string&);
     void Upgrade(CustumerType2);
-    // void ShowPay();
 
     void AddRevenue(const int&, const int&);
     void ShowRevenue();

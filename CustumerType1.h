@@ -26,8 +26,6 @@ public:
     int Input(const std::string&); // Nhap thong tin cua khach hang neu nhap toan bo tra ve 1 neu thoat tra ve 0
     std::string InputTrainDay(); // Nhap ngay tap moi 
     void AddTrainDay(); // Them ngay tap vao danh sach ngay tap
-    
-    // void Input(const std::string&);
 
     //gia cua loai khach hang theo ngay
     int TotalPrice() {

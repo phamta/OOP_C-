@@ -71,7 +71,6 @@ void Package1::OutputMonth(const int& choice){
             std::cout << " " << m[i] << std::endl;
         }
     }
-    // std::cout << ((choice == 12) ? ">Thoat" : " Thoat"); 
 }
 
 std::string Package1::ChooseMonth(bool b){
