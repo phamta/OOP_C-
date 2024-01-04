@@ -24,14 +24,9 @@ public:
         this->CustumerNumber = custumernumber;
     }
 
-    // lay ra ten cua khach hang loai 2
-    std::string GetName2(){
-        return this->FullName;
-        
-    }
     void ShowDate();
     void Show();
-    // void Update();
+
     virtual void ReadFile(std::ifstream&);
     virtual void WriteFile(const std::string&);
 
@@ -42,7 +37,7 @@ public:
         return this->p2.GetPrice()*p2.GetNumberOfMonth();
     }
 
-    int GetMonth(){
+    virtual int GetMonth(){
         std::string temp = this->p1.GetMonth();
         (temp.length() == 1) ? temp = "0"+temp : temp;
         return (static_cast<int>(temp[0])-'0')*10 + (static_cast<int>(temp[1])-'0');

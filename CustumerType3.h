@@ -12,7 +12,7 @@ private:
 public:
     static std::string NameCustumerType3;
     static int Count3;
-    
+
     std::string ChooseService(){
         return this->Service;
     }
@@ -31,12 +31,6 @@ public:
         return this->p3.GetPrice()*this->p2.GetNumberOfMonth();
     }
 
-
-    int GetMonth(){
-        std::string temp = this->p1.GetMonth();
-        (temp.length() == 1) ? temp = "0"+temp : temp;
-        return (static_cast<int>(temp[0])-'0')*10 + (static_cast<int>(temp[1])-'0');
-    }
 };
 
 #endif
