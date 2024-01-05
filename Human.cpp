@@ -149,7 +149,7 @@ int Human::Nhap(const std::string& s){
                     std::cout << "Da hoan thanh viec nhap thong tin khach hang " << std::endl;
                     this->SetName(name);
                     this->SetBornYear(bornyear);
-                    this->SetBornYear(gender);
+                    this->SetGender(gender);
                     
                     system("pause");
                     return 1;
