@@ -3,9 +3,6 @@
 std::map<int, std::string> Package3::Services{};
 int Package3::PriceVIP = 1000;
 
-Package3::Package3() {
-}
-
 std::string Package3::ShowServices(int& choice) {
     for (const auto& pair : Services) {
         if (pair.first == choice) {

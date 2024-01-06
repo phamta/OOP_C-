@@ -12,7 +12,6 @@ private:
     static std::map<int,std::string> Services;
 
 public:
-    Package3();
     static int PriceVIP;
     std::string ShowServices(int& choice);
     int GetSize(){
