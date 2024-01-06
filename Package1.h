@@ -17,7 +17,7 @@ protected:
     std::string Day;
     std::string Month;
     std::string Year;
-    std::vector<std::string> History;
+    // std::vector<std::string> History;
 public:
     static std::string d[4][10];
     static std::string m[12];
