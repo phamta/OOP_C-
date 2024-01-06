@@ -7,10 +7,10 @@ template <typename T>
 class Management {
 private:
     std::vector<T> customers;
-    // std::vector<int> pay{std::vector<int>(12, 0)};
-    // void UpdateRevenue();
+    std::vector<int> revenue;
 public:
-    static std::vector<int> revenue;
+    Management() : revenue(12, 0)
+    {}
 
     void AddCustomer(const T& customer); // them mot khach hang vao danh sach
     void ShowAllCustomers(); // in ra toan bo khach hang

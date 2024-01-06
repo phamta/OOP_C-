@@ -2,9 +2,6 @@
 #include "Management.h"
 
 template<typename T>
-std::vector<int> Management<T>::revenue(12,0);
-
-template<typename T>
 void Management<T>::AddCustomer(const T& custumer){
     customers.push_back(custumer);
 }
